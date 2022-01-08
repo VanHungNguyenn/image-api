@@ -117,6 +117,15 @@ const imagesCtrl = {
 			return res.status(500).json({ msg: error.message })
 		}
 	},
+	deleteAllImages: async (req, res) => {
+		try {
+			await Images.deleteMany()
+
+			res.status(200).json({ msg: 'Delete all successfully' })
+		} catch (error) {
+			return res.status(500).json({ msg: error.message })
+		}
+	},
 }
 
 module.exports = imagesCtrl
